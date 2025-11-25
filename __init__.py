@@ -1,0 +1,25 @@
+"""
+ComfyUI-WP-nodes 初始化文件
+用于导入和注册自定义节点
+"""
+
+# 从Qwen_镜头预设模块导入节点类和映射
+from .Qwen_镜头预设 import NODE_CLASS_MAPPINGS as 镜头预设_NODE_CLASS_MAPPINGS
+from .Qwen_镜头预设 import NODE_DISPLAY_NAME_MAPPINGS as 镜头预设_NODE_DISPLAY_NAME_MAPPINGS
+
+# 从Qwen_打光预设模块导入节点类和映射
+from .Qwen_打光预设 import NODE_CLASS_MAPPINGS as 打光预设_NODE_CLASS_MAPPINGS
+from .Qwen_打光预设 import NODE_DISPLAY_NAME_MAPPINGS as 打光预设_NODE_DISPLAY_NAME_MAPPINGS
+
+# 合并节点映射
+NODE_CLASS_MAPPINGS = {}
+NODE_CLASS_MAPPINGS.update(镜头预设_NODE_CLASS_MAPPINGS)
+NODE_CLASS_MAPPINGS.update(打光预设_NODE_CLASS_MAPPINGS)
+
+# 合并显示名称映射
+NODE_DISPLAY_NAME_MAPPINGS = {}
+NODE_DISPLAY_NAME_MAPPINGS.update(镜头预设_NODE_DISPLAY_NAME_MAPPINGS)
+NODE_DISPLAY_NAME_MAPPINGS.update(打光预设_NODE_DISPLAY_NAME_MAPPINGS)
+
+# 导出节点映射，供ComfyUI加载使用
+__all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS']
